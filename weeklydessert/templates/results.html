@@ -1,0 +1,14 @@
+{% extends "header.html" %}
+
+{% block content %}
+<h1>Dessert votes for: {{ week.start_of_week }}</h1>
+
+<ul>
+{% for choice in week.choice_set.all %}
+  <li>{{ choice.dessert_choice }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+
+<a href="{% url 'index' %}">Thanks! Return to Home page</a>
+{% endblock %}
